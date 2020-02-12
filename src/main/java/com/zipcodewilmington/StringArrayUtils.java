@@ -2,6 +2,7 @@ package com.zipcodewilmington;
 
 import org.junit.Assert;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -85,31 +86,23 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        String myString = "";
-        for (int i = 0; i < array.length; i++) {
-            myString += array[i];
-        }
-        int count[] = new int[26];
-        boolean flag = true;
-        char ch;
-        for(int i =0; i<myString.length(); i++){
-            ch = myString.charAt(i);
-            if (ch == ' ') {
-                continue;
-            }
-            if(ch>='A' && ch<='Z'){
-                count[ch-'A']++;
-            } else if (ch>='a' && ch<='z'){
-                count[ch-'a']++;
+        boolean outcome = false;
+        String english = "abcdefghijklmnopqrstuvwxyz";
+        int englishCount = 0;
+        String myArray = Arrays.toString(array).toLowerCase();
+
+        for (int i = 0; i < english.length(); i++ ){
+            for(int j = 0; j < myArray.length(); j++){
+                if(english.charAt(i) == myArray.charAt(j)){
+                    englishCount++;
+                    break;
+                }
             }
         }
-        for (int i = 0; i < array.length; i++) {
-           if(count[i] == 0){
-               flag = false;
-               break;
-           }
+        if(englishCount == 26){
+            outcome = true;
         }
-        return flag;
+        return outcome;
     }
 
     /**
@@ -118,7 +111,13 @@ public class StringArrayUtils {
      * @return number of occurrences the specified `value` has occurred
      */ // TODO
     public static int getNumberOfOccurrences(String[] array, String value) {
-        return 0;
+        int result = 0;
+        for (String n : array) {
+            if (n == value){
+                result++;
+            }
+        }
+        return result;
     }
 
     /**
@@ -127,7 +126,15 @@ public class StringArrayUtils {
      * @return array with identical contents excluding values of `value`
      */ // TODO
     public static String[] removeValue(String[] array, String valueToRemove) {
-        return null;
+        String[] result = new String[array.length-1];
+        int counter = 0;
+        for(String n : array){
+            if(!n.equals(valueToRemove)){
+                result[counter] = n;
+                counter++;
+            }
+        }
+        return result;
     }
 
     /**

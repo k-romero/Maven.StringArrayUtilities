@@ -11,7 +11,7 @@ public class GetNumberOfOccurrencesTest {
         String[] array = {"aba", "aba", "baa", "bab", "bba", "bba", "bba", "bba", "bbb", "bbb"};
         int expected = 4;
         int actual = StringArrayUtils.getNumberOfOccurrences(array, "bba");
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -19,7 +19,7 @@ public class GetNumberOfOccurrencesTest {
         String[] array = {"aba", "aba", "baa", "bab", "bba", "bba", "bba", "bba", "bbb", "bbb"};
         int expected = 2;
         int actual = StringArrayUtils.getNumberOfOccurrences(array, "bbb");
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -27,7 +27,7 @@ public class GetNumberOfOccurrencesTest {
         String[] array = {"aba", "aba", "baa", "bab", "bba", "bba", "bba", "bba", "bbb", "bbb"};
         int expected = 4;
         int actual = StringArrayUtils.getNumberOfOccurrences(array, "bba");
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(expected, actual);
     }
 
 }
