@@ -85,9 +85,31 @@ public class StringArrayUtils {
      * @return true if each letter in the alphabet has been used in the array
      */ // TODO
     public static boolean isPangramic(String[] array) {
-        boolean outcome = false;
-
-        return outcome;
+        String myString = "";
+        for (int i = 0; i < array.length; i++) {
+            myString += array[i];
+        }
+        int count[] = new int[26];
+        boolean flag = true;
+        char ch;
+        for(int i =0; i<myString.length(); i++){
+            ch = myString.charAt(i);
+            if (ch == ' ') {
+                continue;
+            }
+            if(ch>='A' && ch<='Z'){
+                count[ch-'A']++;
+            } else if (ch>='a' && ch<='z'){
+                count[ch-'a']++;
+            }
+        }
+        for (int i = 0; i < array.length; i++) {
+           if(count[i] == 0){
+               flag = false;
+               break;
+           }
+        }
+        return flag;
     }
 
     /**
